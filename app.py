@@ -3,6 +3,44 @@ import os, time
 import tempfile
 from cad import generate_cad
 
+
+
+
+
+
+with st.sidebar:
+    st.image("logo.png")
+    
+    # Add CSS for circular border around the image
+    st.markdown("""
+        <style>
+        [data-testid="stSidebar"] [data-testid="stImage"] img {
+            border-radius: 50%;           /* Makes the image circular */
+            border: 3px solid #4CAF50;    /* Adds a 3px solid green border */
+            padding: 5px;                 /* Optional: adds space between image and border */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Optional: adds shadow for depth */
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    
+    st.title("Welcome to the Project CADIA CAD Generator")
+    st.write("This is a simple tool to generate CAD models from natural language descriptions.")
+    st.markdown("---")
+    st.markdown("""
+    **Quick Docs:**
+    - Use the text input to describe the CAD design you want to generate.
+    - Use the output format dropdown to select the format of the CAD file you want to generate.
+    - Use the output file name input to name the CAD file you want to generate.
+    - Use the generate CAD button to generate the CAD file.
+    - You can view your downloaded CAD file online via the Autodesk Viewer by clicking the "Autodesk Viewer" button. or any viewer and editor of your choice.
+    
+    for more information on the CADIA API, please visit the [CADIA API Documentation](https://github.com/SourceBox-LLC/cad-generator)
+    """)
+
+
+
+
 # Create two main columns for the app layout
 left_col, right_col = st.columns([2, 1])  # 2:1 ratio gives more space to the CAD generator
 
