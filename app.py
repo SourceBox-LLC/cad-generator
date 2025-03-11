@@ -1,6 +1,5 @@
 import streamlit as st
 import os, time
-import pyperclip
 import tempfile
 from cad import generate_cad
 import webbrowser
@@ -78,12 +77,7 @@ with left_col:
         ]
         
         for example in examples:
-            if st.button(f"Use: {example}", key=f"use_{example}"):
-                st.session_state["example_prompt"] = example
-                pyperclip.copy(example)
-                st.success(f"Copied to clipboard: {example}")
-                time.sleep(2)
-                st.rerun()
+            st.markdown(f"**{example}**")
 
 # RIGHT COLUMN - View Files Section
 with right_col:
@@ -97,7 +91,6 @@ with right_col:
 
     if autodesk_web:
         webbrowser.open("https://viewer.autodesk.com")
-
 # Use the example prompt if selected (outside of columns to affect the form)
 if "example_prompt" in st.session_state:
     prompt = st.session_state["example_prompt"]
