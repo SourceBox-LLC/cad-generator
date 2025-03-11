@@ -22,6 +22,8 @@ with st.sidebar:
         }
         </style>
         """, unsafe_allow_html=True)
+    
+    st.link_button("Project CADIA", "https://projectcadia.com")
 
     
     st.title("Welcome to the Project CADIA CAD Generator")
