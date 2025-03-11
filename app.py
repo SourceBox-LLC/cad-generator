@@ -2,7 +2,6 @@ import streamlit as st
 import os, time
 import tempfile
 from cad import generate_cad
-import webbrowser
 
 # Create two main columns for the app layout
 left_col, right_col = st.columns([2, 1])  # 2:1 ratio gives more space to the CAD generator
@@ -83,14 +82,12 @@ with left_col:
 with right_col:
     st.title("View Files (Autodesk)")
     
-    # Autodesk Viewer button (placeholder)
-    autodesk_web = st.button("Autodesk Viewer", type="primary")
+    # Replace webbrowser with Streamlit's link_button
+    st.link_button("Autodesk Viewer", "https://viewer.autodesk.com", type="primary")
     
     # Add some space and maybe a description
     st.write("Visualize your CAD models directly in the browser.")
 
-    if autodesk_web:
-        webbrowser.open("https://viewer.autodesk.com")
 # Use the example prompt if selected (outside of columns to affect the form)
 if "example_prompt" in st.session_state:
     prompt = st.session_state["example_prompt"]
